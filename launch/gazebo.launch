@@ -1,0 +1,21 @@
+<launch>
+	
+	<arg name="cam_id" default="0" />
+	<arg name="pluginlists_yaml" default="$(find mavros)/launch/apm_pluginlists.yaml" />
+    <arg name="config_yaml" default="$(find mavros)/launch/apm_config.yaml" />
+    
+    
+    <node pkg="mavros" type="mavros_node" name="mavros" required="true" clear_params="true" >
+		<param name="fcu_url" value="" />
+		<param name="gcs_url" value="" />
+		<param name="target_system_id" value="1" />
+		<param name="target_component_id" value="1" />
+
+		<!-- load blacklist, config -->
+		<rosparam command="load" file="$(arg pluginlists_yaml)" />
+		<rosparam command="load" file="$(arg config_yaml)" />
+	</node>
+	
+	<node pkg="viscap_pixhawk" type="takeoff_landing" name="takeoff_landing" output="screen" />
+
+</launch>
