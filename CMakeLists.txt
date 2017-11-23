@@ -29,3 +29,7 @@ target_link_libraries(takeoff_landing ${catkin_LIBRARIES})
 add_executable(change_mode src/change_mode.cpp)
 add_dependencies(change_mode ${catkin_EXPORTED_TARGETS})
 target_link_libraries(change_mode ${catkin_LIBRARIES})
+
+add_executable(voo_quadrado src/voo_quadrado.cpp)
+add_dependencies(voo_quadrado ${catkin_EXPORTED_TARGETS})
+target_link_libraries(voo_quadrado ${catkin_LIBRARIES})
