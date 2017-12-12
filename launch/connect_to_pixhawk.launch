@@ -16,13 +16,4 @@
 		<rosparam command="load" file="$(arg config_yaml)" />
 	</node>
 
-<node ns="pixhawk" name="ground_truth_to_tf" pkg="message_to_tf" type="message_to_tf" output="screen">
-        <param name="odometry_topic" value="/mavros/local_position/odom" />
-        <param name="frame_id" value="map" />
-        <param name="footprint_frame_id" value="base_footprint" />
-        <param name="position_frame_id" value="base_position" />
-        <param name="stabilized_frame_id" value="base_stabilized" />
-        <param name="child_frame_id" value="base_link" />
-</node>
-
 </launch>
