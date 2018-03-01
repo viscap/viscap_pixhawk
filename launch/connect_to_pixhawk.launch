@@ -4,10 +4,12 @@
 	<arg name="pluginlists_yaml" default="$(find mavros)/launch/apm_pluginlists.yaml" />
     <arg name="config_yaml" default="$(find mavros)/launch/apm_config.yaml" />
     
+	<arg name="fcu_url" default= "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0"/>
+	<arg name="gcs_url" default="" />
     
     <node pkg="mavros" type="mavros_node" name="mavros" required="true" clear_params="true" >
-		<param name="fcu_url" value="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0" />
-		<param name="gcs_url" value="" />
+		<param name="fcu_url" value="$(arg fcu_url)" />
+		<param name="gcs_url" value="$(arg gcs_url)" />
 		<param name="target_system_id" value="1" />
 		<param name="target_component_id" value="1" />
 
